@@ -64,6 +64,7 @@ FROM -- table name
 WHERE rank1 <= 5;
 
 -- 2.Identify the time slots during which most orders are placed.based on 2 hour interval.
+
 SELECT
     CASE
         WHEN EXTRACT(HOUR FROM order_time) BETWEEN 0 AND 1 THEN '00:00 - 02:00'
@@ -126,6 +127,7 @@ ORDER BY 2 DESC;
 
 -- 6. Rank restaurants by their total revenue from the last year, including their name, 
 -- total revenue, and rank within their city.
+
 WITH ranking_table
 AS
 (SELECT 
@@ -146,6 +148,7 @@ FROM ranking_table
 WHERE r1 = 1;
 
 -- 7.Identify the most popular dish in each city based on the number of orders.
+
 SELECT * FROM
 (SELECT 
   r.city,
@@ -175,6 +178,7 @@ EXTRACT(year from order_date) = 2024);
 
 -- 9. Calculate and compare the order cancellation rate for each restaurant between the 
 -- current year and the previous year.
+
 WITH cancel_ratio_23
 AS
 (select 
